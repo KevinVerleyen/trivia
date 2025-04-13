@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>home</ion-title>
   </ion-toolbar>
@@ -10,4 +10,53 @@
       <ion-title size="large">home</ion-title>
     </ion-toolbar>
   </ion-header>
+</ion-content>
+
+<ion-list>
+  <ion-item>
+    <ion-select aria-label="difficult" placeholder="Select Difficulty">
+      <ion-select-option value="easy">Easy</ion-select-option>
+      <ion-select-option value="medium">Medium</ion-select-option>
+      <ion-select-option value="hard">Hard</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Quiz Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Catégorie</ion-label>
+      <ion-select placeholder="Choisir une catégorie">
+        <!-- Affichage des catégories dynamiques -->
+        <ion-select-option
+          *ngFor="let category of categories"
+          [value]="category.id"
+        >
+          {{ category.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Difficulté</ion-label>
+      <ion-select placeholder="Choisir une difficulté">
+        <ion-select-option value="facile">Facile</ion-select-option>
+        <ion-select-option value="moyenne">Moyenne</ion-select-option>
+        <ion-select-option value="difficile">Difficile</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre de Questions</ion-label>
+      <ion-range min="5" max="20" step="1" snaps="true"></ion-range>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="block" routerLink="/quiz">Démarrer la Partie</ion-button>
+  <ion-button expand="block" color="secondary" routerLink="/history"
+    >Historique</ion-button
+  >
 </ion-content>
